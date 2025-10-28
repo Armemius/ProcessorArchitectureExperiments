@@ -1,5 +1,10 @@
 # Processor Architecture Experiments
 
+`Степанов Арсений Алексеевич - P3318 - 368849`
+
+This repository contains my solutions to the CSA Lab #3, all the solutions and
+submissions are located here
+
 ## Submissions
 
 - `acc32 - hello_user_pstr`: [Wrench Submission V0.0.3.1](https://wrench.edu.swampbuds.me/report/d068ea6b-09d2-4d0a-9883-ff8e59a2e970)
