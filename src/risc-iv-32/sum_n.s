@@ -3,9 +3,16 @@ input_addr:      .word  0x80
 output_addr:     .word  0x84
 max_value:       .word  67999
 failure_code:    .word  0xCCCCCCCC
+stack_pos:       .word  0x1000
 
     .text
+    .org 0x100
 _start:
+    ; Set up stack pointer
+    lui      s7, %hi(stack_pos)
+    addi     s7, s7, %lo(stack_pos)
+    lw       s7, 0(s7)
+
     lui      t0, %hi(input_addr)
     addi     t0, t0, %lo(input_addr)
     lw       t0, 0(t0)                       ; int* input_port = *input_addr
@@ -20,12 +27,7 @@ _start:
     ble      t0, zero, negative_or_zero      ; if (n <= 0) negative_or_zero
     ble      a0, t0, overflow                ; if (67999 < n) overflow
 
-
-    mv       t1, t0                          ; // t1 = t0
-    addi     t1, t1, 1                       ; // t1 = t1 + 1
-    mul      t1, t1, t0                      ; // t1 = t1 * t0
-    addi     t2, t2, 2                       ; // t2 = 1
-    div      t1, t1, t2                      ; int result = t0 * t1 / t2 = n * (n + 1) / 2
+    jal      s6, calc_subroutine
     j        end
 
 overflow:
@@ -35,10 +37,23 @@ overflow:
     j        end
 negative_or_zero:
     addi     t1, t1, -1                      ; int result = -1
-    j        end                             ; Just for aesthetics :)
 end:
     lui      t0, %hi(output_addr)
     addi     t0, t0, %lo(output_addr)
     lw       t0, 0(t0)                       ; int* output_addr_const = &output_addr
     sw       t1, 0(t0)                       ; *output_addr_const = result
     halt
+
+calc_subroutine:
+    addi     s7, s7, -8
+    sw       s6, 0(s7)
+
+    mv       t1, t0                          ; // t1 = t0
+    addi     t1, t1, 1                       ; // t1 = t1 + 1
+    mul      t1, t1, t0                      ; // t1 = t1 * t0
+    addi     t2, t2, 2                       ; // t2 = 1
+    div      t1, t1, t2                      ; int result = t0 * t1 / t2 = n * (n + 1) / 2
+
+    lw       s6, 0(s7)
+    addi     s7, s7, 8
+    jr       s6
