@@ -6,8 +6,12 @@ const_high_bit:  .word  0x80000000
 
     .text
 
-_start:
+input_subroutine:
     @p input_addr a! @
+    ;
+
+_start:
+    input_subroutine
     dup
     if zero                  \ Edge case: input = 0 -> result = 32
     lit 0 a!                 \ A <- 0
