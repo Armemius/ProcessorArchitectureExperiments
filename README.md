@@ -7,10 +7,10 @@ submissions are located here
 
 ## Submissions
 
-- `acc32 - hello_user_pstr`: [Wrench Submission V0.0.3.1](https://wrench.edu.swampbuds.me/report/d068ea6b-09d2-4d0a-9883-ff8e59a2e970)
-- `f32a - count_leading_zeros`: [Wrench Submission V0.0.3.1](https://wrench.edu.swampbuds.me/report/68cfb278-872d-41a9-9f59-ea32a8531942)
-- `risc-iv-32 - sum_n`: [Wrench Submission V0.0.3.1](https://wrench.edu.swampbuds.me/report/bad0ba0a-8d82-4769-a5aa-1337d395c6fb)
-- `m68k - rle_decompress_bytes`: [Wrench Submission V0.0.3.1](https://wrench.edu.swampbuds.me/report/5b3f81a6-5161-4882-bb37-1fcd4f01a8da)
+- `acc32 - hello_user_pstr`: [Wrench Submission V0.0.3.1](https://wrench.edu.swampbuds.me/report/87233c01-d629-460e-a8a4-cae115dbbcf9)
+- `f32a - count_leading_zeros`: [Wrench Submission V0.0.3.1](https://wrench.edu.swampbuds.me/report/065299c8-1a6f-4333-92fe-8cc70f52bd6b)
+- `risc-iv-32 - sum_n`: [Wrench Submission V0.0.3.1](https://wrench.edu.swampbuds.me/report/74f0faec-4412-4d87-9415-8f6920296343)
+- `m68k - rle_decompress_bytes`: [Wrench Submission V0.0.3.1](https://wrench.edu.swampbuds.me/report/1718060c-87b3-4867-b768-3f3ff204a0d3)
 
 ## Schema
 
